@@ -6,7 +6,7 @@ class HomePageService {
   static Future<http.Response> getTemperatureDetails(
       {required num latitude, required num longitude}) async {
     String url =
-        '${NetworkEndpoints.baseUrl}current.json?q=$latitude,$longitude&key=${NetworkEndpoints.apiKey}';
+        '${NetworkEndpoints.baseUrl}forecast.json?q=$latitude,$longitude&days=8&key=${NetworkEndpoints.apiKey}';
     final response = await http.get(Uri.parse(url));
     log(response.body);
     log(response.statusCode.toString());

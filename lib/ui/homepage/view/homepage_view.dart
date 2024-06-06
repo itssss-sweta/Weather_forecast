@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
+import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/homepage/view_model/homepage_view_model.dart';
 import 'package:weather_forecast/ui/homepage/widgets/current_weather_highlights_widget.dart';
@@ -26,15 +27,19 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return BackgroundWidget(
-      topContents: CurrentWeatherHighlightsWidget(
-          currentWeather: controller.forecastModel.value),
+      topContents: Obx(
+        () => CurrentWeatherHighlightsWidget(
+            currentWeather: controller.forecastModel.value),
+      ),
       bottomContents: Column(
         children: [
           SizedBox(
             height: 300,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: controller.forecastModel.value?.forecast?.forecastday
+                  ?.first.hour?.length,
+              padding: UiHelper.getVerticalPadding(spacing: Spacing.medium),
               itemBuilder: (context, index) {
                 final List<Forecastday>? forecastList =
                     controller.forecastModel.value?.forecast?.forecastday;
@@ -44,16 +49,16 @@ class _HomePageViewState extends State<HomePageView> {
                     children: [
                       Text(
                         forecastDay?.time?.formatTime ?? '',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.labelMedium,
                       ),
                       Image.network(
-                        forecastDay?.condition?.icon ?? '',
+                        'https:${forecastDay?.condition?.icon ?? ''}',
                         height: 50,
                         color: AppColor.iconColor,
                       ),
                       TemperatureTextWidget(
                         temperature: forecastDay?.tempC.toString() ?? '',
-                        temptStyle: Theme.of(context).textTheme.bodyMedium,
+                        temptStyle: Theme.of(context).textTheme.labelLarge,
                         superScriptStyle: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
@@ -63,7 +68,7 @@ class _HomePageViewState extends State<HomePageView> {
                 }
               },
             ),
-          )
+          ),
         ],
       ),
     );

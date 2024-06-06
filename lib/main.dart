@@ -24,6 +24,9 @@ class HomePage extends StatelessWidget {
             bodySmall: TextStyle(color: AppColor.textColor),
             displayLarge: TextStyle(color: AppColor.textColor),
             bodyMedium: TextStyle(color: AppColor.textColor),
+            labelLarge: TextStyle(color: AppColor.textColor),
+            labelMedium: TextStyle(color: AppColor.textColor),
+            labelSmall: TextStyle(color: AppColor.textColor),
             titleLarge: TextStyle(
               color: AppColor.textColor,
               fontSize: 107,
