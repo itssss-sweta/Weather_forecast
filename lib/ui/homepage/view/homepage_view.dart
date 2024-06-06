@@ -27,7 +27,7 @@ class _HomePageViewState extends State<HomePageView> {
   Widget build(BuildContext context) {
     return BackgroundWidget(
       topContents: CurrentWeatherHighlightsWidget(
-          currentWeather: controller.forecastModel),
+          currentWeather: controller.forecastModel.value),
       bottomContents: Column(
         children: [
           SizedBox(
@@ -37,7 +37,7 @@ class _HomePageViewState extends State<HomePageView> {
               itemCount: 5,
               itemBuilder: (context, index) {
                 final List<Forecastday>? forecastList =
-                    controller.forecastModel?.forecast?.forecastday;
+                    controller.forecastModel.value?.forecast?.forecastday;
                 if (forecastList != null && forecastList.isNotEmpty) {
                   final forecastDay = forecastList.first.hour?[index];
                   return Column(

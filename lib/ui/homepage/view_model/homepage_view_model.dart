@@ -3,7 +3,7 @@ import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/homepage/repository/homepage_repository_impl.dart';
 
 class HomePageController extends GetxController {
-  ForecastModel? forecastModel = ForecastModel();
+  final Rx<ForecastModel?> forecastModel = ForecastModel().obs;
 
   final HomePageRepositoryImpl homePageRepositoryImpl =
       HomePageRepositoryImpl();
@@ -11,7 +11,7 @@ class HomePageController extends GetxController {
   Future<void> getTemperatureDetails() async {
     final data = await homePageRepositoryImpl.getCurrentTempDetails();
     if (data.successModel != null) {
-      forecastModel = data.successModel;
+      forecastModel.value = data.successModel;
     }
   }
 }
