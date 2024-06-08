@@ -18,45 +18,30 @@ class CurrentWeatherHighlightsWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Obx(
-          //   () =>
           Text("${currentWeather?.location?.name}",
               style: Theme.of(context).textTheme.titleMedium),
-          // ),
-          // Obx(
-          //   () =>
           TemperatureTextWidget(
             temperature: "${currentWeather?.current?.tempC}",
             superScriptStyle: Theme.of(context).textTheme.titleLarge,
             temptStyle: Theme.of(context).textTheme.titleLarge,
           ),
-          // ),
-          // Obx(
-          //   () =>
           Text(
             "${currentWeather?.current?.condition?.text}",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Obx(
-              //   () =>
               TemperatureTextWidget(
                 temperature: "Wind:${currentWeather?.current?.windDegree}",
                 superScriptStyle: Theme.of(context).textTheme.titleSmall,
                 temptStyle: Theme.of(context).textTheme.titleSmall,
               ),
-              // ),
               UiHelper.getHorizontalSpacing(spacing: Spacing.medium),
-              // Obx(
-              //   () =>
               Text(
                 "H:${currentWeather?.current?.humidity}",
                 style: Theme.of(context).textTheme.titleSmall,
               ),
-              // ),
             ],
           ),
         ],

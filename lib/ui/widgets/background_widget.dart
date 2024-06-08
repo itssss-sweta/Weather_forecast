@@ -39,6 +39,7 @@ class BackgroundWidget extends StatelessWidget {
                   'cloud'.getPngImage,
                   fit: BoxFit.cover,
                   width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height / 2,
                 ),
                 Positioned(
                   child: Image.asset(
