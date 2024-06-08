@@ -11,10 +11,12 @@ class HomePageController extends GetxController {
 
   Future<void> getTemperatureDetails() async {
     isLoading.value = true;
-    final data = await homePageRepositoryImpl.getCurrentTempDetails();
-    if (data.successModel != null) {
-      forecastModel.value = data.successModel;
-    }
-    isLoading.value = false;
+    Future.delayed(const Duration(milliseconds: 2000)).then((value) async {
+      final data = await homePageRepositoryImpl.getCurrentTempDetails();
+      if (data.successModel != null) {
+        forecastModel.value = data.successModel;
+        isLoading.value = false;
+      }
+    });
   }
 }

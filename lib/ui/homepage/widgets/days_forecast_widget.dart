@@ -38,7 +38,6 @@ class DaysForecastWidget extends StatelessWidget {
               ),
             ],
           ),
-          
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -48,7 +47,7 @@ class DaysForecastWidget extends StatelessWidget {
               log('${daysForecast?.date?.getDayName()}');
               return ListTile(
                 leading: SizedBox(
-                  width: 120,
+                  width: 80,
                   child: Text(
                     daysForecast?.date?.getDayName() ?? '',
                     style: Theme.of(context).textTheme.bodyLarge,
