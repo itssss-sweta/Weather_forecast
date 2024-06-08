@@ -38,6 +38,7 @@ class DaysForecastWidget extends StatelessWidget {
               ),
             ],
           ),
+          
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),

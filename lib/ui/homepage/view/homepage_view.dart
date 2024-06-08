@@ -5,6 +5,7 @@ import 'package:weather_forecast/ui/homepage/view_model/homepage_view_model.dart
 import 'package:weather_forecast/ui/homepage/widgets/current_weather_highlights_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/days_forecast_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/hourly_forecase_widget.dart';
+import 'package:weather_forecast/ui/homepage/widgets/splash_screen.dart';
 import 'package:weather_forecast/ui/widgets/background_widget.dart';
 
 class HomePageView extends StatefulWidget {
@@ -24,26 +25,33 @@ class _HomePageViewState extends State<HomePageView> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
-      topContents: Obx(
-        () => CurrentWeatherHighlightsWidget(
-            currentWeather: controller.forecastModel.value),
-      ),
-      bottomContents: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                HourlyForecastWidget(
-                    forecastModel: controller.forecastModel.value),
-                UiHelper.getVerticalSpacing(spacing: Spacing.small),
-                DaysForecastWidget(
-                    forecastModel: controller.forecastModel.value),
-              ],
+    return Obx(() {
+      if (controller.isLoading.value) {
+        return const SplashScreen();
+      }
+      return BackgroundWidget(
+        topContents: Obx(
+          () => CurrentWeatherHighlightsWidget(
+              currentWeather: controller.forecastModel.value),
+        ),
+        bottomContents: CustomScrollView(
+          slivers: [
+            Obx(
+              () => SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    HourlyForecastWidget(
+                        forecastModel: controller.forecastModel.value),
+                    UiHelper.getVerticalSpacing(spacing: Spacing.small),
+                    DaysForecastWidget(
+                        forecastModel: controller.forecastModel.value),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }
