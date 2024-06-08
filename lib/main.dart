@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
 import 'package:weather_forecast/base/routes/approute.dart';
 import 'package:weather_forecast/base/service/location_service/location_access.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter().ongenerateRoute,
       theme: ThemeData(
