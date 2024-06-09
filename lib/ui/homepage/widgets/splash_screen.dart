@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: AppColor.themeColor,
       body: Center(
         child: Text(
-          'Weather-Forecast',
+          'Weather Forecast',
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),

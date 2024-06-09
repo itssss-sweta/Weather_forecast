@@ -2,15 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:weather_forecast/ui/homepage/widgets/detail_measure_widget.dart';
 
 class DetailRowWidget extends StatelessWidget {
+  /// Icon to be displayed at row children first.
   final IconData icon1;
+
+  /// Icon to be displayed at row children second.
   final IconData icon2;
+
+  /// Title to be displayed at row children first.
   final String? measureTitle1;
+
+  /// Title to be displayed at row children second.
   final String? measureTitle2;
+
+  /// Value to be displayed at row children first.
   final String? measureValue1;
+
+  /// Value to be displayed at row children second.
   final String? measureValue2;
+
+  /// Value if temperature to be displayed at row children first.
   final String? measureTempValue1;
+
+  /// Value if temperature to be displayed at row children second.
   final String? measureTempValue2;
 
+  /// Constructor of [DetailRowWidget].
+  ///
+  /// The row consists of two widgets where the other weather detail's value and name are given.
+  ///
+  /// Parametes: [icon1],[icon2],[measureTitle1],[measureTitle2],[measureValue1],[measureValue2],
+  /// [measureTempValue1] and [measureTempValue2].
   const DetailRowWidget(
       {super.key,
       required this.icon1,

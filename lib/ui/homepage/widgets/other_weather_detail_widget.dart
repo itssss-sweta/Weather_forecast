@@ -6,8 +6,17 @@ import 'package:weather_forecast/ui/homepage/widgets/detail_row_widget.dart';
 import 'package:weather_forecast/base/extension/get_uv_index.dart';
 
 class OtherWeatherDetailWidget extends StatelessWidget {
+  /// The model that contains all the details of current weather.
   final Current? currentWeather;
+
+  /// The model that contains all the details of forecast weather of current day.
   final Forecastday? forecastWeather;
+
+  /// Constructor of [OtherWeatherDetailWidget].
+  ///
+  /// Widget that contains a detail of other weather details except current temperature.
+  ///
+  /// Parameters: [currentWeather] and [forecastWeather].
   const OtherWeatherDetailWidget(
       {super.key, required this.currentWeather, required this.forecastWeather});
 

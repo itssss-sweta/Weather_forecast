@@ -7,7 +7,12 @@ import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 import 'package:weather_forecast/base/extension/format_time_extension.dart';
 
 class HourlyForecastWidget extends StatelessWidget {
+  /// The model that contains all the details of forecast weather of days followed by current day.
   final ForecastModel? forecastModel;
+
+  /// Widget to show hourly temperature.
+  ///
+  /// Parameter: [forecastModel].
   const HourlyForecastWidget({super.key, required this.forecastModel});
 
   @override
