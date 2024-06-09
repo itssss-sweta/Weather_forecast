@@ -4,11 +4,23 @@ import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
 import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 
+/// Widget to keep the data of the any of the weather detail.
 class DetailMeasureWidget extends StatelessWidget {
+  /// Icon related to the detail.
   final IconData icon;
+
+  /// Title related to the detail.
   final String measureTitle;
+
+  /// Value of the detail.
   final String? measureValue;
+
+  /// Value of the detail incase in terms of temperature.
   final String? measureTempValue;
+
+  /// Widget to keep the data of the any of the weather detail.
+  ///
+  /// Paramaters: [icon], [measureTitle],[measureValue] and [measureTempValue].
   const DetailMeasureWidget(
       {super.key,
       required this.icon,

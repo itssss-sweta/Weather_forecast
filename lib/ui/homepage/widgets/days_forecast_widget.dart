@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:weather_forecast/base/extension/find_day_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
@@ -7,8 +6,15 @@ import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
 import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 
+/// Widget that lists out the forecast upto 8 days from current day.
 class DaysForecastWidget extends StatelessWidget {
   final ForecastModel? forecastModel;
+
+  /// Constructor of [DaysForecastWidget].
+  ///
+  /// Widget that lists out the forecast upto 8 days from current day.
+  ///
+  /// Paramater: [forecastModel].
   const DaysForecastWidget({super.key, required this.forecastModel});
 
   @override
@@ -36,7 +42,6 @@ class DaysForecastWidget extends StatelessWidget {
             itemCount: forecastModel?.forecast?.forecastday?.length ?? 5,
             itemBuilder: (context, index) {
               final daysForecast = forecastModel?.forecast?.forecastday?[index];
-              log('${daysForecast?.date?.getDayName}');
               return ListTile(
                 leading: SizedBox(
                   width: 80,

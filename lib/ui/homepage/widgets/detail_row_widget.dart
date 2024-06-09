@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/ui/homepage/widgets/detail_measure_widget.dart';
 
+/// The row consists of two [DetailMeasureWidget] widgets where the
+/// other weather detail's value and name are given.
 class DetailRowWidget extends StatelessWidget {
   /// Icon to be displayed at row children first.
   final IconData icon1;
@@ -28,7 +30,7 @@ class DetailRowWidget extends StatelessWidget {
 
   /// Constructor of [DetailRowWidget].
   ///
-  /// The row consists of two widgets where the other weather detail's value and name are given.
+  /// The row consists of two [DetailMeasureWidget] widgets where the other weather detail's value and name are given.
   ///
   /// Parametes: [icon1],[icon2],[measureTitle1],[measureTitle2],[measureValue1],[measureValue2],
   /// [measureTempValue1] and [measureTempValue2].

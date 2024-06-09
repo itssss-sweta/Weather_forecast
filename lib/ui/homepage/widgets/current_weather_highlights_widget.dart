@@ -3,12 +3,28 @@ import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 
+/// The Highlight of the current weather includes:
+/// - current temperature
+/// - humidity
+/// - place name
+/// - condition
+/// - wind degree
+///
 class CurrentWeatherHighlightsWidget extends StatelessWidget {
+  /// The Highlight of the current weather includes:
+  /// - current temperature
+  /// - humidity
+  /// - place name
+  /// - condition
+  /// - wind degree
+  ///
+  /// Paramater: [currentWeather]
   const CurrentWeatherHighlightsWidget({
     super.key,
     required this.currentWeather,
   });
 
+  /// Model that stores data of the current as well ad forecast data.
   final ForecastModel? currentWeather;
 
   @override
