@@ -19,7 +19,7 @@ class DetailMeasureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: WeatherForecastWidget(
+      child: ContainerDecoratedWidget(
         padding: UiHelper.getSymmetricPadding(
             horizontal: Spacing.large, vertical: Spacing.large),
         child: Column(

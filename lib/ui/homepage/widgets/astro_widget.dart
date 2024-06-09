@@ -29,7 +29,7 @@ class AstroWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WeatherForecastWidget(
+    return ContainerDecoratedWidget(
       width: MediaQuery.sizeOf(context).width,
       padding: UiHelper.getSymmetricPadding(
           horizontal: Spacing.large, vertical: Spacing.large),

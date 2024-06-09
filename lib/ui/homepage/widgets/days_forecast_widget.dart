@@ -13,7 +13,7 @@ class DaysForecastWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WeatherForecastWidget(
+    return ContainerDecoratedWidget(
       padding: UiHelper.getOnlyPadding(left: Spacing.small, top: Spacing.small),
       child: Column(
         children: [

@@ -19,7 +19,7 @@ class HourlyForecastWidget extends StatelessWidget {
             ?.where((hour) => DateTime.parse(hour.time!).isAfter(now))
             .toList() ??
         [];
-    return WeatherForecastWidget(
+    return ContainerDecoratedWidget(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
