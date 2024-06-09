@@ -34,16 +34,6 @@ class BackgroundService {
     }
   }
 
-  static Color getBottomNavColor() {
-    if (hour >= 6 && hour < 18) {
-      return AppColor.dayThemeColor2;
-    } else if (hour >= 18 && hour < 21) {
-      return AppColor.eveningThemeLightColor;
-    } else {
-      return AppColor.buttomNavColor;
-    }
-  }
-
   static List<Color> getContainerGradient() {
     if (hour >= 6 && hour < 18) {
       return [

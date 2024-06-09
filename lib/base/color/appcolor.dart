@@ -13,5 +13,4 @@ class AppColor {
   static Color eveningThemeColor = const Color(0xFFe87e57);
   static Color eveningThemeLightColor = const Color(0xFFb16660);
   static Color eveningThemeColor2 = const Color(0xFFc26c58);
-  static Color buttomNavColor = const Color(0xFF2A3040);
 }

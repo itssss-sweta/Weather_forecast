@@ -44,13 +44,6 @@ class BackgroundWidget extends StatelessWidget {
                           height: MediaQuery.sizeOf(context).height / 2,
                         );
                       }),
-                      // Positioned(
-                      //   child: Image.asset(
-                      //     'stars'.getPngImage,
-                      //     fit: BoxFit.cover,
-                      //     width: double.infinity,
-                      //   ),
-                      // ),
                       topContents ?? const SizedBox.shrink(),
                     ],
                   ),
@@ -73,17 +66,6 @@ class BackgroundWidget extends StatelessWidget {
               ),
             );
           }),
-      bottomNavigationBar:
-          GetBuilder<BackgroundController>(builder: (controller) {
-        return BottomNavigationBar(
-          elevation: 0,
-          backgroundColor: controller.buttomNavBarColor.value,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: 'ABC'),
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: 'ABC'),
-          ],
-        );
-      }),
     );
   }
 }
