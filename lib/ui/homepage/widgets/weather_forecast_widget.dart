@@ -4,7 +4,11 @@ import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 
 class WeatherForecastWidget extends StatelessWidget {
   final Widget child;
-  const WeatherForecastWidget({super.key, required this.child});
+  final double? height;
+  final double? width;
+  final EdgeInsetsGeometry? padding;
+  const WeatherForecastWidget(
+      {super.key, required this.child, this.height, this.padding, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,9 @@ class WeatherForecastWidget extends StatelessWidget {
         ),
       ),
       margin: UiHelper.getHorizontalPadding(spacing: Spacing.small),
-      height: 180,
+      padding: padding,
+      height: height,
+      width: width,
       child: child,
     );
   }

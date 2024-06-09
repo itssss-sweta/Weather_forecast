@@ -20,6 +20,7 @@ class HourlyForecastWidget extends StatelessWidget {
             .toList() ??
         [];
     return WeatherForecastWidget(
+      height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,

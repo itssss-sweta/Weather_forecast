@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
 import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
+import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
 import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 
 class DaysForecastWidget extends StatelessWidget {
@@ -12,17 +13,8 @@ class DaysForecastWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius:
-            BorderRadius.circular(UiHelper.getRadius(radius: Spacing.medium)),
-        border: Border.all(
-          color: AppColor.textColor.withOpacity(0.25),
-        ),
-      ),
-      margin: UiHelper.getHorizontalPadding(spacing: Spacing.small),
-      padding: UiHelper.getSymmetricPadding(
-          horizontal: Spacing.small, vertical: Spacing.small),
+    return WeatherForecastWidget(
+      padding: UiHelper.getOnlyPadding(left: Spacing.small, top: Spacing.small),
       child: Column(
         children: [
           Row(
@@ -44,12 +36,12 @@ class DaysForecastWidget extends StatelessWidget {
             itemCount: forecastModel?.forecast?.forecastday?.length ?? 5,
             itemBuilder: (context, index) {
               final daysForecast = forecastModel?.forecast?.forecastday?[index];
-              log('${daysForecast?.date?.getDayName()}');
+              log('${daysForecast?.date?.getDayName}');
               return ListTile(
                 leading: SizedBox(
                   width: 80,
                   child: Text(
-                    daysForecast?.date?.getDayName() ?? '',
+                    daysForecast?.date?.getDayName ?? '',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
