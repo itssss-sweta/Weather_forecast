@@ -12,8 +12,8 @@ class BackgroundWidget extends StatelessWidget {
 
   /// Constructor for `BackgroundWidget`.
   ///
-  /// The background decoration of the screens in application, consisting
-  /// base buttom navigation bar as well.
+  /// The background decoration of the screens in application
+  /// which includes images and background colors.
   ///
   /// Paramaters: [topContents], [bottomContents].
   const BackgroundWidget({super.key, this.topContents, this.bottomContents});
