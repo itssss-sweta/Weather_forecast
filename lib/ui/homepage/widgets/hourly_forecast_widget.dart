@@ -28,7 +28,7 @@ class HourlyForecastWidget extends StatelessWidget {
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: filteredHours.length,
         itemBuilder: (context, index) {
           final forecastDay = filteredHours[index];
 
