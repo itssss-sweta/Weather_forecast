@@ -15,6 +15,16 @@ class BackgroundService {
     }
   }
 
+  static Color getAppBarColor() {
+    if (hour >= 6 && hour < 18) {
+      return AppColor.dayThemeColor;
+    } else if (hour >= 18 && hour < 21) {
+      return AppColor.eveningThemeLightColor;
+    } else {
+      return AppColor.themeColor;
+    }
+  }
+
   static List<Color> getBackgroundColor() {
     if (hour >= 6 && hour < 18) {
       return [

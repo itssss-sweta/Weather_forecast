@@ -15,36 +15,30 @@ class HomePageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
-        init: HomePageController(),
-        builder: (controller) {
-          if (controller.isLoading.value) {
-            return const SplashScreen();
-          }
-          return BackgroundWidget(
-            topContents: CurrentWeatherHighlightsWidget(
-                currentWeather: controller.forecastModel.value),
-            bottomContents: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      HourlyForecastWidget(
-                          forecastModel: controller.forecastModel.value),
-                      UiHelper.getVerticalSpacing(spacing: Spacing.small),
-                      DaysForecastWidget(
-                          forecastModel: controller.forecastModel.value),
-                      UiHelper.getVerticalSpacing(spacing: Spacing.small),
-                      OtherWeatherDetailWidget(
-                        currentWeather: controller.forecastModel.value?.current,
-                        forecastWeather: controller
-                            .forecastModel.value?.forecast?.forecastday?.first,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          );
-        });
+      init: HomePageController(),
+      builder: (controller) {
+        if (controller.isLoading.value) {
+          return const SplashScreen();
+        }
+        return BackgroundWidget(
+          topContents: CurrentWeatherHighlightsWidget(
+              currentWeather: controller.forecastModel.value),
+          bottomContents: Column(
+            children: [
+              HourlyForecastWidget(
+                  forecastModel: controller.forecastModel.value),
+              UiHelper.getVerticalSpacing(spacing: Spacing.small),
+              DaysForecastWidget(forecastModel: controller.forecastModel.value),
+              UiHelper.getVerticalSpacing(spacing: Spacing.small),
+              OtherWeatherDetailWidget(
+                currentWeather: controller.forecastModel.value?.current,
+                forecastWeather: controller
+                    .forecastModel.value?.forecast?.forecastday?.first,
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
