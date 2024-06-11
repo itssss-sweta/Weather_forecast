@@ -25,4 +25,21 @@ class HomePageRepositoryImpl extends HomePageRepository {
     final decodedJson = jsonDecode(temperatureResponse.body);
     return (successModel: null, errorModel: ErrorModel.fromJson(decodedJson));
   }
+
+  @override
+  Future<({ErrorModel? errorModel, ForecastModel? successModel})>
+      getSearchCurrentTempDetails({required String city}) async {
+    final temperatureResponse =
+        await HomePageService.getSearchTemperatureDetails(city: city);
+    if (temperatureResponse.statusCode >= 200 &&
+        temperatureResponse.statusCode < 300) {
+      final decodedJson = jsonDecode(temperatureResponse.body);
+      return (
+        successModel: ForecastModel.fromJson(decodedJson),
+        errorModel: null
+      );
+    }
+    final decodedJson = jsonDecode(temperatureResponse.body);
+    return (successModel: null, errorModel: ErrorModel.fromJson(decodedJson));
+  }
 }

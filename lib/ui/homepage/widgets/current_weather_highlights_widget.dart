@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
-import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
+import 'package:weather_forecast/ui/homepage/widgets/temperature_text_widget.dart';
 
 /// The Highlight of the current weather includes:
 /// - current temperature
@@ -9,7 +9,6 @@ import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
 /// - place name
 /// - condition
 /// - wind degree
-///
 class CurrentWeatherHighlightsWidget extends StatelessWidget {
   /// The Highlight of the current weather includes:
   /// - current temperature

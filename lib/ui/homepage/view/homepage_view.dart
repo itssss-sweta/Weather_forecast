@@ -7,7 +7,7 @@ import 'package:weather_forecast/ui/homepage/widgets/days_forecast_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/hourly_forecast_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/other_weather_detail_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/splash_screen.dart';
-import 'package:weather_forecast/ui/widgets/background_widget.dart';
+import 'package:weather_forecast/ui/homepage/widgets/background_widget.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});

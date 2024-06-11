@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:weather_forecast/ui/background_controller/background_controller.dart';
-import 'package:weather_forecast/ui/widgets/header_widget.dart';
+import 'package:weather_forecast/ui/homepage/view_model/homepage_controller.dart';
+import 'package:weather_forecast/ui/homepage/widgets/header_widget.dart';
 
 class BackgroundWidget extends StatelessWidget {
   /// Contents in the screen inside the image of type Widget
@@ -22,8 +21,8 @@ class BackgroundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<BackgroundController>(
-        init: BackgroundController(),
+    return GetBuilder<HomePageController>(
+        init: HomePageController(),
         builder: (controller) {
           return Scaffold(
             backgroundColor: controller.appBarColor.value,
@@ -38,8 +37,7 @@ class BackgroundWidget extends StatelessWidget {
                       background: Stack(
                         fit: StackFit.expand,
                         children: [
-                          GetBuilder<BackgroundController>(
-                              builder: (controller) {
+                          GetBuilder<HomePageController>(builder: (controller) {
                             return Image.asset(
                               controller.backgroundImage.value,
                               fit: BoxFit.cover,
@@ -66,7 +64,7 @@ class BackgroundWidget extends StatelessWidget {
                   ),
                   SliverToBoxAdapter(
                     child:
-                        GetBuilder<BackgroundController>(builder: (controller) {
+                        GetBuilder<HomePageController>(builder: (controller) {
                       return Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(

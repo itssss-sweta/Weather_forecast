@@ -3,7 +3,7 @@ import 'package:weather_forecast/base/color/appcolor.dart';
 import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
-import 'package:weather_forecast/ui/widgets/temperature_text_widget.dart';
+import 'package:weather_forecast/ui/homepage/widgets/temperature_text_widget.dart';
 import 'package:weather_forecast/base/extension/format_time_extension.dart';
 
 class HourlyForecastWidget extends StatelessWidget {

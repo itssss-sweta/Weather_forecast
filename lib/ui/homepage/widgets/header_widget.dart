@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
 import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
-import 'package:weather_forecast/ui/background_controller/background_controller.dart';
+import 'package:weather_forecast/ui/homepage/view_model/homepage_controller.dart';
 
 class HeaderWidget extends StatelessWidget {
   /// Constructor of [HeaderWidget].
@@ -27,7 +27,7 @@ class HeaderWidget extends StatelessWidget {
         left: Spacing.small,
         right: Spacing.small,
       ),
-      child: GetBuilder<BackgroundController>(builder: (controller) {
+      child: GetBuilder<HomePageController>(builder: (controller) {
         return TextField(
           controller: controller.searchController,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(

@@ -1,11 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:weather_forecast/base/color/appcolor.dart';
+import 'package:weather_forecast/base/service/background_service/background_service.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
 import 'package:weather_forecast/ui/homepage/repository/homepage_repository_impl.dart';
 
 class HomePageController extends GetxController {
+  Rx<String> backgroundImage = ''.obs;
+
+  RxList<Color> backgroundColors = <Color>[].obs;
+  RxList<Color> containerGradient = <Color>[].obs;
+  Rx<Color> appBarColor = AppColor.dayThemeColor.withOpacity(0.2).obs;
+
+  TextEditingController searchController = TextEditingController();
+
   @override
   void onInit() {
     super.onInit();
+    backgroundImage.value = BackgroundService.getBackgroundImage();
+    backgroundColors.value = BackgroundService.getBackgroundColor();
+    containerGradient.value = BackgroundService.getContainerGradient();
+    appBarColor.value = BackgroundService.getAppBarColor();
     getWeatherDetails();
   }
 
@@ -26,6 +41,19 @@ class HomePageController extends GetxController {
       isLoading(true);
       await Future.delayed(const Duration(seconds: 2));
       final data = await homePageRepositoryImpl.getCurrentTempDetails();
+      forecastModel.value = data.successModel;
+    } finally {
+      isLoading(false);
+      update();
+    }
+  }
+
+  Future<void> getSearchWeatherDetails() async {
+    try {
+      isLoading(true);
+      await Future.delayed(const Duration(seconds: 2));
+      final data = await homePageRepositoryImpl.getSearchCurrentTempDetails(
+          city: searchController.text);
       forecastModel.value = data.successModel;
     } finally {
       isLoading(false);
