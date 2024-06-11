@@ -23,18 +23,10 @@ enum Spacing {
 }
 
 /// Helper class that has several methods listed below
-///* [getHorizontalPadding] Provide padding with horizontal spacing.
-///* [getVerticalPadding] Provide padding with vertical spacing.
-///* [getSymmetricPadding] Provide padding with both horizontal and vertical spacing.
-///* [getOnlyPadding] Provide padding with optional left, top, right and bottom spacing.
-///* [getHorizontalSpacing] Provides a double spacing value for horizontal spacing.
-///* [getVerticalSpacing] Provides a double spacing value for vertical spacing.
-///* [getRadius] Provides a double radius value.
-///* [_getSpacing] Retrieves the spacing value for a given Spacing enum.
 class UiHelper {
   /// Provides padding with horizontal spacing.
   ///
-  /// [spacing] The horizontal spacing value default set to 20.
+  /// - Default spacing set to 20.
   static EdgeInsetsGeometry getHorizontalPadding(
       {Spacing spacing = Spacing.medium}) {
     return EdgeInsets.symmetric(
@@ -44,7 +36,7 @@ class UiHelper {
 
   /// Provides padding with vertical spacing.
   ///
-  ///* [spacing] The vertical spacing value default set to 20.
+  ///- Default spacing set to 20.
   static EdgeInsetsGeometry getVerticalPadding(
       {Spacing spacing = Spacing.medium}) {
     return EdgeInsets.symmetric(
@@ -54,8 +46,7 @@ class UiHelper {
 
   /// Provides padding with both horizontal and vertical spacing.
   ///
-  ///* [horizontal] ```The horizontal spacing value default set to 20```.
-  ///* [vertical] The vertical spacing value default set to 20.
+  ///- Default spacing set to 20.
   static EdgeInsetsGeometry getSymmetricPadding(
       {Spacing horizontal = Spacing.medium,
       Spacing vertical = Spacing.medium}) {
@@ -67,10 +58,8 @@ class UiHelper {
 
   /// Provides padding with optional left, top, right, and bottom spacing.
   ///
-  /// [left] The left spacing value default set to 0.
-  /// [top] The top spacing value default set to 0.
-  /// [right] The right spacing value default set to 0.
-  /// [bottom] The bottom spacing value default set to 0.
+  ///- Default spacing set to 0.
+
   static EdgeInsetsGeometry getOnlyPadding({
     Spacing left = Spacing.none,
     Spacing top = Spacing.none,
@@ -87,7 +76,7 @@ class UiHelper {
 
   /// Provides a horizontal spacing.
   ///
-  /// [spacing] The horizontal spacing value default set to 10.
+  ///- Default spacing set to 10.
   static SizedBox getHorizontalSpacing({Spacing spacing = Spacing.small}) {
     return SizedBox(
       width: _getSpacing(spacing),
@@ -96,7 +85,7 @@ class UiHelper {
 
   /// Provides a  vertical spacing.
   ///
-  /// [spacing] The vertical spacing value default set to 10.
+  ///- Default spacing set to 10.
   static SizedBox getVerticalSpacing({Spacing spacing = Spacing.small}) {
     return SizedBox(
       height: _getSpacing(spacing),
@@ -105,7 +94,7 @@ class UiHelper {
 
   /// Provides a double radius value.
   ///
-  /// [radius] The radius value default set to 0.
+  ///- Default radius set to 10.
   static double getRadius({Spacing radius = Spacing.medium}) {
     return _getSpacing(radius);
   }
