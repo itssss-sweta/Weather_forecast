@@ -23,10 +23,11 @@ class HeaderWidget extends StatelessWidget {
           color: AppColor.textColor,
         ),
       ),
-      padding: UiHelper.getOnlyPadding(
-        left: Spacing.small,
-        right: Spacing.small,
+      padding: UiHelper.getHorizontalPadding(
+        spacing: Spacing.small,
       ),
+      margin: UiHelper.getOnlyPadding(
+          top: Spacing.small, left: Spacing.small, right: Spacing.small),
       child: GetBuilder<HomePageController>(builder: (controller) {
         return TextField(
           controller: controller.searchController,
@@ -44,7 +45,9 @@ class HeaderWidget extends StatelessWidget {
             hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 fontSize: 18, color: AppColor.textColor.withOpacity(0.5)),
             suffixIcon: IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                await controller.getSearchWeatherDetails();
+              },
               icon: const Icon(
                 Icons.search,
               ),
