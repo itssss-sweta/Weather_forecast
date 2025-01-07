@@ -30,6 +30,7 @@ class BackgroundWidget extends StatelessWidget {
               child: CustomScrollView(
                 slivers: [
                   SliverAppBar(
+                    scrolledUnderElevation: 0,
                     backgroundColor: Colors.transparent,
                     pinned: true,
                     expandedHeight: MediaQuery.sizeOf(context).height / 2,
@@ -62,6 +63,10 @@ class BackgroundWidget extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SliverToBoxAdapter(
+                      child: SizedBox(
+                    height: 20,
+                  )),
                   SliverToBoxAdapter(
                     child:
                         GetBuilder<HomePageController>(builder: (controller) {
