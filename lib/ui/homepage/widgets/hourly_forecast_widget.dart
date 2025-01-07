@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/base/color/appcolor.dart';
+import 'package:weather_forecast/base/extension/format_time_extension.dart';
 import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/model/forecast_model.dart';
-import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
 import 'package:weather_forecast/ui/homepage/widgets/temperature_text_widget.dart';
-import 'package:weather_forecast/base/extension/format_time_extension.dart';
+import 'package:weather_forecast/ui/homepage/widgets/weather_forecast_widget.dart';
 
 class HourlyForecastWidget extends StatelessWidget {
   /// The model that contains all the details of forecast weather of days followed by current day.
@@ -19,19 +19,19 @@ class HourlyForecastWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Forecastday>? forecastList =
         forecastModel?.forecast?.forecastday;
-    final DateTime now = DateTime.now();
+    final DateTime now =
+        DateTime.parse(forecastModel?.location?.localtime ?? '');
     final List<Hour> filteredHours = forecastList?.first.hour
             ?.where((hour) => DateTime.parse(hour.time!).isAfter(now))
             .toList() ??
         [];
     return ContainerDecoratedWidget(
-      height: 200,
+      height: 180,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: filteredHours.length,
         itemBuilder: (context, index) {
           final forecastDay = filteredHours[index];
-
           return Padding(
             padding: UiHelper.getSymmetricPadding(
                 horizontal: Spacing.small, vertical: Spacing.medium),
