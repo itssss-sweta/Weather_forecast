@@ -48,6 +48,9 @@ class HomePageController extends GetxController {
     }
   }
 
+  /// Stores the weather details fetched from repository in `forecastModel` variable according to search query
+  ///
+  /// Also updates `isLoading` boolean for update of ui accordingly.
   Future<void> getSearchWeatherDetails() async {
     try {
       isLoading(true);
