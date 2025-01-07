@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:weather_forecast/base/ui_helper/ui_helper.dart';
 import 'package:weather_forecast/ui/homepage/view_model/homepage_controller.dart';
 import 'package:weather_forecast/ui/homepage/widgets/header_widget.dart';
 
@@ -46,19 +47,21 @@ class BackgroundWidget extends StatelessWidget {
                               height: MediaQuery.sizeOf(context).height / 2,
                             );
                           }),
-                          const Positioned(
+                          Positioned(
                             left: 0,
                             right: 0,
                             top: 0,
-                            child: HeaderWidget(),
-                          ),
-                          if (topContents != null)
-                            Positioned(
-                              top: kToolbarHeight,
-                              left: 0,
-                              right: 0,
-                              child: topContents!,
+                            child: Column(
+                              children: [
+                                const HeaderWidget(),
+                                UiHelper.getVerticalSpacing(
+                                    spacing: Spacing.small),
+                                topContents != null
+                                    ? topContents!
+                                    : const SizedBox.shrink(),
+                              ],
                             ),
+                          ),
                         ],
                       ),
                     ),

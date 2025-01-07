@@ -28,39 +28,37 @@ class CurrentWeatherHighlightsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned.fill(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text("${currentWeather?.location?.name}",
-              style: Theme.of(context).textTheme.titleMedium),
-          TemperatureTextWidget(
-            temperature: "${currentWeather?.current?.tempC}",
-            superScriptStyle: Theme.of(context).textTheme.titleLarge,
-            temptStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-          Text(
-            "${currentWeather?.current?.condition?.text}",
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TemperatureTextWidget(
-                temperature: "Wind:${currentWeather?.current?.windDegree}",
-                superScriptStyle: Theme.of(context).textTheme.titleSmall,
-                temptStyle: Theme.of(context).textTheme.titleSmall,
-              ),
-              UiHelper.getHorizontalSpacing(spacing: Spacing.medium),
-              Text(
-                "H:${currentWeather?.current?.humidity}",
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text("${currentWeather?.location?.name}",
+            style: Theme.of(context).textTheme.titleMedium),
+        TemperatureTextWidget(
+          temperature: "${currentWeather?.current?.tempC}",
+          superScriptStyle: Theme.of(context).textTheme.titleLarge,
+          temptStyle: Theme.of(context).textTheme.titleLarge,
+        ),
+        Text(
+          "${currentWeather?.current?.condition?.text}",
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TemperatureTextWidget(
+              temperature: "Wind:${currentWeather?.current?.windDegree}",
+              superScriptStyle: Theme.of(context).textTheme.titleSmall,
+              temptStyle: Theme.of(context).textTheme.titleSmall,
+            ),
+            UiHelper.getHorizontalSpacing(spacing: Spacing.medium),
+            Text(
+              "H:${currentWeather?.current?.humidity}",
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
