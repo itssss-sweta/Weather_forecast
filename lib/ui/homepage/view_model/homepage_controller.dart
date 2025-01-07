@@ -30,6 +30,9 @@ class HomePageController extends GetxController {
   /// Boolean to keep track of data.
   Rx<bool> isLoading = false.obs;
 
+  /// Boolean to keep track of search data is fetched.
+  Rx<bool> isSearchDataLoading = false.obs;
+
   final HomePageRepositoryImpl homePageRepositoryImpl =
       HomePageRepositoryImpl();
 
@@ -39,6 +42,7 @@ class HomePageController extends GetxController {
   Future<void> getWeatherDetails() async {
     try {
       isLoading(true);
+      update();
       await Future.delayed(const Duration(seconds: 2));
       final data = await homePageRepositoryImpl.getCurrentTempDetails();
       forecastModel.value = data.successModel;
@@ -53,13 +57,14 @@ class HomePageController extends GetxController {
   /// Also updates `isLoading` boolean for update of ui accordingly.
   Future<void> getSearchWeatherDetails() async {
     try {
-      isLoading(true);
+      isSearchDataLoading(true);
+      update();
       await Future.delayed(const Duration(seconds: 2));
       final data = await homePageRepositoryImpl.getSearchCurrentTempDetails(
           city: searchController.text);
       forecastModel.value = data.successModel;
     } finally {
-      isLoading(false);
+      isSearchDataLoading(false);
       update();
     }
   }
