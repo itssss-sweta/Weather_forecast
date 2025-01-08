@@ -17,7 +17,8 @@ class HomePageView extends StatelessWidget {
     return GetBuilder<HomePageController>(
       init: HomePageController(),
       builder: (controller) {
-        if (controller.isLoading.value) {
+        if (controller.isLoading.value &&
+            !controller.isSearchDataLoading.value) {
           return const SplashScreen();
         }
         return Stack(
@@ -41,7 +42,8 @@ class HomePageView extends StatelessWidget {
                 ],
               ),
             ),
-            if (controller.isSearchDataLoading.value)
+            if (controller.isLoading.value &&
+                controller.isSearchDataLoading.value)
               Container(
                 color: Colors.black.withOpacity(0.5),
                 child: const Center(
